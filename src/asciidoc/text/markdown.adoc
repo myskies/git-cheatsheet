@@ -1,0 +1,169 @@
+
+// Allow GitHub image rendering
+:imagesdir: ../images
+
+== Markdown Syntax
+
+Markdown is a way to style text on the web.
+You control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown.
+Mostly, Markdown is just regular text with a few non-alphaabetic characters thrown in, like # or *.
+
+=== Headers
+
+[source, shell]
+----
+# This is an <h1> tag
+## This is an <h2> tag
+###### This is an <h6> tag
+----
+
+=== Emphasis
+
+[source, shell]
+----
+*This text will be italic*
+_This will also be italic_
+
+**This text will be bold**
+__This will also be bold__
+
+*You **can** combine them*
+----
+
+=== Lists
+
+.Unordered
+[source, shell]
+----
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+----
+
+.Ordered
+[source, shell]
+----
+1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b
+----
+
+=== Images
+
+[source, shell]
+----
+![GitHub Logo](/images/logo.png)
+
+Format: ![Alt Text](url)
+----
+
+=== Links
+
+[source, shell]
+----
+http://github.com - automatic!
+
+[Github](http://github.com)
+----
+
+=== Blockquotes
+
+[source, shell]
+----
+As Kanye West Said
+
+> We're living the future so
+> the present is our past.
+----
+
+=== Backslash Escapes
+
+[source, shell]
+----
+\*literal asterisks\*
+----
+
+Markdown provides backslash escapes for the following characters:
+
+|===
+| `\` backslash        | `()` parentheses
+| ` backtick           | `#` hash mark
+| `*` asterisk         | `+` plus sign
+| `_` underscore       | `-` minus sign (hyphen)
+| `{}` curly braces    | `.` dot
+| `[]` square brackets | `!` exclamation mark
+|===
+
+== GitHub Flavored Markdown
+
+GitHub.com uses its own version of the Markdown syntax that provides an additional set of useful features, many of which make it easier to work with content on GitHub.com.
+
+=== Username @MENTIONS
+
+Typing an `@` symbol, followed by a username, will notify that person to come and view the comment.
+This is called an _"@mention"_, because you're mentioning the individual.
+You can also @mention teams within an organization.
+
+=== Issue References
+
+Any number that refers to an Issue or Pull Request will be automatically converted into a link.
+
+[source, shell]
+----
+#1
+defunkt#1
+defunkt/github-flavored-markdown#1
+----
+
+=== Task Lists
+
+[source, shell]
+----
+- [x] @mentions, #refs, [links](),
+**formatting**, and <del>tags</del>
+supported
+- [x] list syntax required (any
+unordered or ordered list supported)
+- [x] this is a complete item
+- [ ] this is an incomplete item
+----
+
+=== Fenced Code Blocks
+
+Markdown coverts text with four leading spaces into a code block; with GFM you can wrap your code with ``` to create a code block without the leading spaces.
+Add an optional language identifier and your code with get syntax highlighting.
+
+[source, shell]
+----
+```javascript
+function test() {
+  console.log("look ma `, no spaces");
+}
+```
+----
+
+=== Tables
+
+You can create tables by assembling a list of words and dividing them with hyphens `-` (for the first row), and then separating each column with a pipe `|`:
+
+[source, shell]
+----
+First Header     | Second Header
+-----------------|--------------
+Content cell 1   | Content cell 2
+Content column 1 | Content column 2
+----
+
+=== Emoji
+
+To see a list of every image we support, checkout http://www.emoji-cheat-sheet.com
+
+[source, shell]
+----
+Github supports emoji!
+:+1: :sparkles: :camel: :tada:
+:rocket: :metal: :octocat:
+----

@@ -1,0 +1,315 @@
+
+// Allow GitHub image rendering
+:imagesdir: ../images
+
+== Install Git
+
+GitHub provides desktop clients that include a graphical user interface for the most common repository actions and an automatically updating command line edition of Git for advanced scenarios.
+
+.GitHub for Windows
+https://windows.github.com
+
+.GitHub for Mac
+https://mac.github.com
+
+Git distributions for Linux and POSIX systems are available on the official Git SCM site.
+
+.Git for All Platforms
+http://git-scm.com
+
+== Configure Tooling
+
+Configure user information for all local repositories.
+
+.Sets the name you want attached to your commit transactions
+[source, shell]
+----
+$ git config --global user.name "[name]"
+----
+
+.Sets the email you want attached to your commit transactions
+[source, shell]
+----
+$ git config --global user.email "[email address]"
+----
+
+.Enables helpful colorization of command line output
+[source, shell]
+----
+$ git config --global color.ui auto
+----
+
+== Create Repositories
+
+Start a new repository or obtain one from an existing URL.
+
+.Creates a new local repository with the specified name
+[source, shell]
+----
+$ git init [project-name]
+----
+
+.Downloads a project and its entire version history
+[source, shell]
+----
+$ git clone [url]
+----
+
+== Make Changes
+
+Review edits and craft a commit transaction.
+
+.Lists all new or modified files to be committed
+[source, shell]
+----
+$ git status
+----
+
+.Shows file differences not yet staged
+[source, shell]
+----
+$ git diff
+----
+
+.Snapshots the file in preparation for versioning
+[source, shell]
+----
+$ git add [file]
+----
+
+.Shows file differences between staging and the last file version
+[source, shell]
+----
+$ git diff --staged
+----
+
+.Unstages the file, but preserve its contents
+[source, shell]
+----
+$ git reset [file]
+----
+
+.Records file snapshots permanently in version history
+[source, shell]
+----
+$ git commit -m "[descriptive message]"
+----
+
+== Group Changes
+
+Name a series of commits and combine completed efforts.
+
+.Lists all local branches in the current repository
+[source, shell]
+----
+$ git branch
+----
+
+.Creates a new branch
+[source, shell]
+----
+$ git branch [branch-name]
+----
+
+.Switches to the specified branch and updates the working directory
+[source, shell]
+----
+$ git checkout [branch-name]
+----
+
+.Combines the specified branch's history into the current branch
+[source, shell]
+----
+$ git merge [branch]
+----
+
+.Deletes the specified branch
+[source, shell]
+----
+$ git branch -d [branch-name]
+----
+
+== Refactoring Filenames
+
+Relocate and remove versioned files
+
+.Deletes the file from the working directory and stages the deletion
+[source, shell]
+----
+$ git rm [file]
+----
+
+.Removes the file from version control but preserves the file locally
+[source, shell]
+----
+$ git rm --cached [file]
+----
+
+.Changes the file name and prepares it for commit
+[source, shell]
+----
+$ git mv [file-original] [file-renamed]
+----
+
+== Suppress Tracking
+
+Exclude temporary files and paths.
+
+.A text file named .gitignore suppresses accidental versioning of files and paths matching the specific patterns.
+[source, shell]
+----
+*.log
+build/
+temp-*
+----
+
+.Lists all ignored files in this project
+[source, shell]
+----
+$ git ls-files --other --ignored --exclude-standard
+----
+
+== Save Fragments
+
+Shelve and restore incomplete changes.
+
+.Temporarily stores all modified tracked files
+[source, shell]
+----
+$ git stash
+----
+
+.Restores the most recently stashed files
+[source, shell]
+----
+$ git stash pop
+----
+
+.Lists all stashed changesets
+[source, shell]
+----
+$ git stash list
+----
+
+.Discards the most recently stashed changeset
+[source, shell]
+----
+$ git stash drop
+----
+
+== Review History
+
+Browse and inspect the evolution of project files.
+
+.Lists version history for the current branch
+[source, shell]
+----
+$ git log
+----
+
+.Lists version history for a file, including renames
+[source, shell]
+----
+$ git log --follow [file]
+----
+
+.Shows content differences between two branches
+[source, shell]
+----
+$ git diff [first-branch]...[second-branch]
+----
+
+.Outputs metadata and content changes of the specified commit
+[source, shell]
+----
+$ git show [commit]
+----
+
+== Redo Commits
+
+Erase mistakes and craft replacement history
+
+.Undoes all commits after `[commit]`, preserving changes locally
+[source, shell]
+----
+$ git reset [commit]
+----
+
+.Discards all history and changes back to the specified commit
+[source, shell]
+----
+$ git reset --hard [commit]
+----
+
+.Remove all untracked directories and files
+[source, shell]
+----
+$ git clean -fdx
+----
+
+== Synchronize Changes
+
+Register a repository bookmark and exchange version history.
+
+.Downloads all history from the repository bookmark
+[source, shell]
+----
+$ git fetch [bookmark]
+----
+
+.Combines bookmark's branch into current local branch
+[source, shell]
+----
+$ git merge [bookmark]/[branch]
+----
+
+.Uploads all local branch commits to GitHub
+[source, shell]
+----
+$ git push [alias] [branch]
+----
+
+.Downloads bookmark history and incorporates changes
+[source, shell]
+----
+$ git pull
+----
+
+== Remote Repositories
+
+.List all assigned remote repositories
+[source, shell]
+----
+$ git remote -v
+----
+
+.Add another remote repository
+[source, shell]
+----
+$ git remote add [bookmark] [url]
+----
+
+.Push changes to the same location they are branched from
+[source, shell]
+----
+$ git config push.default tracking
+----
+
+.Push your branch back to your online GitHub repository
+[source, shell]
+----
+$ git push --verbose [bookmark] [branch]
+----
+
+.Text patch submission
+[source, shell]
+----
+$ git format-patch -M -C remotes/[bookmark]/[branch]
+----
+
+.Make a new branch from a Pull Request
+[source, shell]
+----
+$ git fetch [bookmark] refs/pull/[pull-request-number]/head:[branch]
+$ git push [bookmark] [branch]
+----

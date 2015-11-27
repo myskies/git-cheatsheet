@@ -1,0 +1,21 @@
+
+[[ha-opennms]]
+= High Available OpenNMS
+:author: Alejandro Galue, agalue@opennms.com
+:revnumber: {doc-version}
+:revdate: {last-update-label} {docdatetime}
+:version-label!:
+:ascii-ids:
+:encoding: UTF-8
+:icons: font
+:toc: left
+:toclevels: 3
+:numbered:
+:imagesdir: images
+
+= GIT CHEAT SHEET
+
+Git is the open source distributed version control system that facilitates GitHub activities on your laptop or desktop.
+This cheat sheet summarizes commonly used Git command line instructions for quick reference.
+
+include::text/cheatsheet.adoc[]

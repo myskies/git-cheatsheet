@@ -1,0 +1,22 @@
+
+= Git Cheat Sheet
+
+Git is the open source distributed version control system that facilitates GitHub activities on your laptop or desktop. This cheat sheet summarizes commonly used Git command line instructions for quick reference.
+
+== Requirements
+
+* Java JDK 8
+* Apache Maven
+* Git
+
+== Build HTML and PDF output
+
+[source, shell]
+----
+$ git clone https://github.com/opennms-forge/git-cheatsheet.git
+$ cd git-cheatsheet
+$ mvn clean package
+----
+
+The HTML and PDF file is build to `target/generated-docs/index.{html,pdf}`.
+
